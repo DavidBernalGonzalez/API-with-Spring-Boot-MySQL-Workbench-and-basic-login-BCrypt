@@ -1,0 +1,29 @@
+spring:
+# Definimos la fuente de datos
+  datasource:
+    url: jdbc:mysql://localhost:3306/login_db
+    username: admin
+    password: admin
+      
+# Le indica a la aplicación que hibernate ser el encargado de 
+# crear/actualizar la tablas en la BBDD a partir de las entidades JPA 
+  jpa:
+    hibernate:
+      ddl-auto: create
+    # Con estas propiedades podemos ver las querys que lanza internamente
+    # Jpa en la consola de arranque de Spring Boto por si se genera un error
+    # que sea más facil de identificar/solventar
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: false
+        # Nos permite establecer la relación que tiene la aplicación 
+        #con la carga perezosa fuera de una transacción. Si lo ponemos a true 
+        #Hibernate (JPA trabaja con Hibernate internamente) podrá realizar 
+        #cargas perezosas fuera de las transacciones y se eliminará dicho error. 
+        enable_lazy_load_no_trans: true
+
+
+
+
+
